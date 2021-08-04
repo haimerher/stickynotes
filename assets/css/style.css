@@ -170,7 +170,7 @@ body {
 @media (max-width: 480px) {
     .main-nav { padding: 14px 20px; }
 
-    .main-cont { padding-bottom: 80px; }
+    .main-cont { padding-bottom: 110px; }
 
     .grid-layout.nav, .grid-layout.postit { grid-template-columns: 100%; }
 
@@ -185,7 +185,7 @@ body {
     .searchBox { height: 40px; }
 
     #create-sticky {
-        bottom: 20px;
+        bottom: 50px;
         box-shadow: 0 1px 8px rgba(0,0,0, .2);
         height: 54x;
         line-height: 52px;
