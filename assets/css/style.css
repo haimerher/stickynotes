@@ -170,6 +170,8 @@ body {
 @media (max-width: 480px) {
     .main-nav { padding: 14px 20px; }
 
+    .main-cont { padding-bottom: 80px; }
+
     .grid-layout.nav, .grid-layout.postit { grid-template-columns: 100%; }
 
     .grid-layout.nav > div:last-child { padding-left: 0; }
@@ -185,12 +187,14 @@ body {
     #create-sticky {
         bottom: 20px;
         box-shadow: 0 1px 8px rgba(0,0,0, .2);
-        height: 44px;
-        line-height: 44px;
+        height: 54x;
+        line-height: 52px;
         margin-bottom: 0;
         position: fixed;
         right: 20px;
         z-index: 1;
-        width: 44px;
+        width: 54x;
     }
+
+    .indicator { display: none; }
 }
