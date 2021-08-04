@@ -196,5 +196,5 @@ body {
         width: 54x;
     }
 
-    .indicator { display: none; }
+    .empty-block .indicator { display: none; }
 }
