@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="grid-layout nav">
+            <div class="logo">Sticky Notes</div>
+            <div>
+                <input type="text" class="searchBox" placeholder="Buscar nota">
+            </div>
+        </div>
+    </nav>
+    <div class="main-cont">
+        <div id="noteList">
+            <button id="create-sticky"><i class="ion-plus-round"></i></button>
+            <div class="grid-layout postit" id="stickynotes"></div>
+        </div>
+        <div class="empty-block"> 
+            No notes added.
+            <span class="indicator"><span class="icon"></span> + New note</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
