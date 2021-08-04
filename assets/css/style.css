@@ -31,7 +31,13 @@ body {
 
 .grid-layout { display: grid; }
 
-.grid-layout.nav { grid-template-columns: 190px auto; }
+.grid-layout.nav { 
+    grid-template-columns: 190px auto; 
+    margin: 0 auto;
+    width: 1024px;
+}
+
+.grid-layout.nav > div:last-child { padding-left: 30%; }
 
 .grid-layout.postit { gap: 30px; grid-template-columns: repeat(3, 1fr); }
 
@@ -83,11 +89,10 @@ body {
     border-radius: 30px;
     display: block;
     height: 46px;
-    margin-left: 22%;
     max-width: 680px;
     outline: none;
     padding: 0 30px;
-    width: 40%;
+    width: 100%;
 }
 
 .main-cont {
@@ -152,4 +157,40 @@ body {
     padding: 40px;
     margin-right: 10px;
     transition: all ease-in-out .3s;
+}
+
+@media (max-width: 1023px) {
+    .grid-layout.nav, .main-cont { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .grid-layout.postit { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .main-nav { padding: 14px 20px; }
+
+    .grid-layout.nav, .grid-layout.postit { grid-template-columns: 100%; }
+
+    .grid-layout.nav > div:last-child { padding-left: 0; }
+
+    .logo { 
+        font-size: 20px; 
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .searchBox { height: 40px; }
+
+    #create-sticky {
+        bottom: 20px;
+        box-shadow: 0 1px 8px rgba(0,0,0, .2);
+        height: 44px;
+        line-height: 44px;
+        margin-bottom: 0;
+        position: fixed;
+        right: 20px;
+        z-index: 1;
+        width: 44px;
+    }
 }
