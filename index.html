@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/vendors/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <nav class="main-nav">
@@ -21,12 +22,27 @@
     </nav>
     <div class="main-cont">
         <div id="noteList">
-            <button id="create-sticky"><i class="ion-plus-round"></i></button>
+            <div class="float-btn">
+                <button class="btns" id="create-sticky"><i class="ion-plus-round"></i></button>
+                <button class="btns archivebtn" id="open-modal"><i class="ion-android-archive"></i></button>
+            </div>
             <div class="grid-layout postit" id="stickynotes"></div>
         </div>
         <div class="empty-block"> 
             No notes added.
             <span class="indicator"><span class="icon"></span> + New note</span>
+        </div>
+    </div>
+    <div class="modal-wrapper" id="modal-wrapper">
+        <div class="modalbox" id="archive">
+            <header class="modal-header">
+                <h2>Notas archivadas</h2>
+                <button class="close-btn" id="dismiss-modal"><i class="ion-ios-close-outline"></i></button>
+            </header>
+            <div class="modal-body">
+                <div class="empty-archive"> No hay notas guardadas.</div>
+                <div class="postit" id="notesSaved"></div>
+            </div>
         </div>
     </div>
 

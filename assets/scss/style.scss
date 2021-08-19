@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: #0d3051;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+}
+
+.main-nav {
+    background-color: #13385C;
+    box-shadow: 0 2px 8px rgba(0,0,0, .2);
+    color: #FFF;
+    padding: 20px;
+}
+
+.logo { 
+    color: #00B793; 
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.searchBox {
+    border: 0;
+    border-radius: 30px;
+    display: block;
+    height: 46px;
+    max-width: 680px;
+    outline: none;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.float-btn {
+    margin-bottom: 30px;
+    text-align: right;
+
+    .btns {
+        border-radius: 50%;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 12px;
+        width: 50px;
+
+        &:last-of-type { margin-right: 0; }
+    }
+
+    #create-sticky { background-color: #00B793; }
+
+    .archivebtn { background-color: #A2ACBD; }
+}
+
+.grid-layout { 
+    display: grid; 
+
+    &.nav { 
+        grid-template-columns: 190px auto; 
+        margin: 0 auto; 
+        width: 1024px;
+
+        & > div:last-child { padding-left: 30%; }
+    }
+
+    &.postit { gap: 30px; grid-template-columns: repeat(3, 1fr); }
+}
+
+.postit { clear: both; }
+
+.postit {
+    & > div {
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0, .2);
+        color: #474747;
+        height: 260px;
+        position: relative;
+        transition: opacity ease-in-out .3s;
+
+        &:nth-child(odd) { background-color: #FFEDCB; }
+
+        &:nth-child(even) { background-color: #DCF3F0; }
+    }
+
+    .noteTitle, .noteContent { outline: none; }
+
+    .noteTitle { 
+        font-size: 18px; 
+        font-weight: 700;
+        padding: 20px 62px 20px 20px;
+    }
+
+    .noteContent { 
+        font-size: 16px; 
+        font-weight: 300;
+        height: 200px; 
+        overflow-y: auto;
+        padding: 0 20px 40px;
+    }
+}
+
+[contentEditable]:empty:not(:focus):before {
+    content: attr(data-placeholder);
+    color: #474747;
+    opacity: .6;
+}
+
+.main-cont {
+    margin: 0 auto;
+    padding: 40px 20px 0;
+    width: 1024px;
+}
+
+.empty-block {
+    border: 2px dashed rgba(255,255,255, .2);
+    border-radius: 4px;
+    color: rgba(255,255,255, .6);
+    font-weight: 100;
+    margin-top: 20px;
+    padding: 40px;
+    position: relative;
+    text-align: center;
+
+    .indicator {
+        display: block;
+        font-size: 14px;
+        opacity: .6;
+        position: absolute;
+        right: 108px;
+        top: -83px;
+
+        .icon {
+            background-image: url('../img/arrow.svg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            display: block;
+            height: 40px;
+            margin: 0 auto 10px;
+            opacity: .6;
+            width: 40px; 
+        }
+    }
+}
+
+.dtc {
+    bottom: 12px;
+    font-size: 12px;
+    opacity: .6;
+    position: absolute;
+    right: 20px;
+}
+
+.float-icons {
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+    transition: color ease-in-out.3s;
+
+    &.storeSticky { 
+        right: 44px;
+    
+        &:hover { color: #487caf }
+    }
+
+    &.deleteSticky { 
+        right: 20px;
+
+        &:hover { color: #c54747 }
+    }
+}
+
+.modal-wrapper {
+    background-color: rgba(13, 48, 81, .8);
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity ease-in-out .3s;
+    width: 100%;
+
+    .modalbox {
+        background-color: white;
+        border-radius: 4px;
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        transition: all ease-in-out .3s;
+        width: 480px;
+
+        &.active { top: 50%; }
+    }
+
+    .modal-header { 
+        padding: 20px; position: relative; 
+
+        h2 { margin: 0; }
+
+        .close-btn { 
+            border: 0;
+            background-color: transparent;
+            color: grey;
+            cursor: pointer;
+            font-size: 28px;
+            position: absolute;
+            right: 20px;
+            top: 18px;
+            transition: all .6s ease-in-out;
+
+            &:hover { color: #c54747; }
+        }
+    }
+
+    .modal-body { 
+        overflow-x: auto;
+        padding: 20px;
+        max-height: 80vh;
+
+        #notesSaved .storeSticky { display: none; }
+
+        .note { 
+            box-shadow: none; 
+            height: 180px;
+            margin-bottom: 10px; 
+            
+            &:last-of-type { margin-bottom: 0; }
+
+            .noteContent { height: 120px; }
+        }
+
+        .empty-archive {
+            background-color: #dae1e8;
+            border-radius: 4px;
+            color: #073463;
+            padding: 30px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid-layout.nav, .main-cont { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .grid-layout.postit { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .main-nav { padding: 14px 20px; }
+
+    .main-cont { padding-bottom: 110px; }
+
+    .grid-layout.nav, .grid-layout.postit { grid-template-columns: 100%; }
+
+    .grid-layout.nav > div:last-child { padding-left: 0; }
+
+    .logo { 
+        font-size: 20px; 
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .searchBox { height: 40px; }
+
+    .float-btn {
+        bottom: 50px;
+        margin-bottom: 0;
+        position: fixed;
+        right: 20px;
+        z-index: 1;
+
+        .btns {
+            box-shadow: 0 1px 8px rgba(0,0,0, .2);
+            display: block;
+            height: 54px;
+            line-height: 52px;
+            margin: 0 0 12px;
+            width: 54px;
+
+            &:last-of-type { margin: 0; }
+        }
+    }
+
+    .modal-wrapper .modalbox { width: 90%; }
+
+    .empty-block .indicator { display: none; }
+}
